@@ -8,6 +8,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="logo">MeuGitHub</Link>
+          
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">Sobre Mim</Link></li>

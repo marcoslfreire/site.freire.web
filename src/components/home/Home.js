@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import profilePic from '../imagens/perfil.jpg'; // Caminho relativo para a imagem
 
+
 const Home = () => {
   return (
     <div className="home">

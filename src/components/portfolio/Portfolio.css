@@ -2,20 +2,29 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Três colunas para os cards */
   gap: 20px; /* Espaçamento entre os cards */
-  padding: 80px 20px 20px; /* Afastamento do topo para não grudar com o header */
+  padding: 150px 20px 20px; /* Afastamento do topo para não grudar com o header */
   max-width: 1000px; /* Largura máxima do container para garantir que cabem três cards */
   margin: 0 auto; /* Centraliza o container na página */
   justify-items: center; /* Centraliza os itens dentro das colunas */
 }
 
 .portfolio-item {
-  background-color: #fff;
-  border-radius: 50px;
+  background-color: #f9f9f9; /* Cor de fundo padrão do card */
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.1s ease, box-shadow 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
   width: 100%; /* Certifica que o card ocupe toda a largura da coluna */
   max-width: 350px; /* Largura máxima do card para garantir que três caibam em uma linha */
+  position: relative; /* Necessário para o pseudo-elemento de sombra */
+  opacity: 0.8; /* Torna o card ligeiramente transparente por padrão */
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px) scale(1.05); /* Eleva e aumenta o card ao passar o mouse */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+  opacity: 1; /* Torna o card completamente opaco ao passar o mouse */
+  background-color: #fafbfc79; /* Muda a cor de fundo ao passar o mouse */
 }
 
 .portfolio-image {

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 import About from './components/about/About'; // Importando o novo componente
 import Portfolio from './components/portfolio/Portfolio'; // Importando o novo componente
+import Contact from './components/contact/Contact';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} /> {/* Adicionando a rota para "Sobre Mim" */}
         <Route path="/portfolio" element={<Portfolio />} /> {/* Adicionando a rota para "Sobre Mim" */}
+        <Route path="/Contact" element={<Contact />} /> {/* Adicionando a rota para "Sobre Mim" */}
         {/* Adicione outras rotas conforme necessário */}
       </Routes>
     </Router>
