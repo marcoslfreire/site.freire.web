@@ -1,0 +1,114 @@
+.home {
+    display: flex;
+    padding-top: 60px; /* Para compensar a navbar fixa */
+  }
+  
+  .sidebar {
+    width: 25%;
+    padding: 1rem;
+    background-color: #f6f8fa;
+    border-right: 1px solid #e1e4e8;
+  }
+  
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: 0.3s ease-in-out; /* Suaviza a transição */
+    position: relative;
+  }
+  
+  .profile-pic:hover {
+    filter: brightness(0.8); /* Escurece a imagem ao passar o mouse */
+    transform: scale(1.08); /* Aumenta ligeiramente o tamanho */
+  }
+  
+  /* Estilo para o h2 */
+  .sidebar h2 {
+    font-size: 1.5rem;
+    color: #e24b4b;
+    margin-bottom: 0.5rem;
+    transition: color 0.5s ease-in-out; /* Suaviza a transição da cor */
+  }
+  
+  .sidebar h2:hover {
+    color: #fa6686; /* Muda a cor ao passar o mouse */
+  }
+  
+  /* Estilo para o parágrafo na sidebar */
+  .sidebar p {
+    color: #586069; /* Cinza */
+    margin-bottom: 1rem;
+    transition: color 0.5s ease-in-out; /* Suaviza a transição da cor */
+  }
+  
+  .sidebar p:hover {
+    color: #707f91; /* Muda a cor ao passar o mouse */
+  }
+  
+  /* Estilo para os links na sidebar */
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar-links a {
+    color: #0366d6;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.5s ease-in-out; /* Suaviza a transição da cor */
+  }
+  
+  .sidebar-links a:hover {
+    color: #586069; /* Muda para um tom mais escuro ao passar o mouse */
+    padding-left: 0.5rem; /* Um pequeno deslocamento à esquerda */
+    border-radius: 4px; /* Suave bordas arredondadas */
+  }
+  
+  /* Estilo para os parágrafos na seção principal (main-content) */
+  .main-content {
+    width: 75%;
+    padding: 1rem;
+  }
+  
+  .main-content p {
+    color: #333; /* Cor de texto padrão */
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    margin-bottom: 1.5rem; /* Espaçamento inferior */
+    font-size: 1.1rem; /* Tamanho de fonte ligeiramente maior */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transições suaves para cor e transformação */
+    position: relative; /* Para posicionar o pseudo-elemento */
+    padding: 0.5rem; /* Adiciona padding interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #f9f9f9; /* Cor de fundo leve */
+  }
+  
+  .main-content p:hover {
+    color:  #586069; /* Muda a cor do texto ao passar o mouse */
+    transform: translateY(-5px); /* Levanta o parágrafo ligeiramente */
+  }
+  
+  .main-content p::before {
+    content: ''; /* Adiciona um pseudo-elemento antes do parágrafo */
+    display: block;
+    width: 50px; /* Largura do pseudo-elemento */
+    height: 4px; /* Altura do pseudo-elemento */
+    background-color: #0366d6; /* Cor de fundo do pseudo-elemento */
+    position: absolute;
+    top: 0; /* Alinha ao topo do parágrafo */
+    left: 0; /* Alinha à esquerda do parágrafo */
+    border-radius: 2px; /* Bordas arredondadas no pseudo-elemento */
+    transform: scaleX(0); /* Inicialmente invisível */
+    transition: transform 0.3s ease; /* Transição suave para o pseudo-elemento */
+  }
+  
+  .main-content p:hover::before {
+    transform: scaleX(1); /* Revela o pseudo-elemento ao passar o mouse */
+  }
+  
