@@ -7,7 +7,7 @@ const Header = () => {
     <header className="header">
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="logo">MeuGitHub</Link>
+          <Link to="/" className="logo">luciano.freire</Link>
           
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
