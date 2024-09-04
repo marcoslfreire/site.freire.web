@@ -1,55 +1,77 @@
 .portfolio-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Três colunas para os cards */
-  gap: 20px; /* Espaçamento entre os cards */
-  padding: 150px 20px 20px; /* Afastamento do topo para não grudar com o header */
-  max-width: 1000px; /* Largura máxima do container para garantir que cabem três cards */
-  margin: 0 auto; /* Centraliza o container na página */
-  justify-items: center; /* Centraliza os itens dentro das colunas */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo */
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .portfolio-item {
-  background-color: #f9f9f9; /* Cor de fundo padrão do card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
-  width: 100%; /* Certifica que o card ocupe toda a largura da coluna */
-  max-width: 350px; /* Largura máxima do card para garantir que três caibam em uma linha */
-  position: relative; /* Necessário para o pseudo-elemento de sombra */
-  opacity: 0.8; /* Torna o card ligeiramente transparente por padrão */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 400px; /* Altura mínima para os cards */
 }
 
 .portfolio-item:hover {
-  transform: translateY(-10px) scale(1.05); /* Eleva e aumenta o card ao passar o mouse */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
-  opacity: 1; /* Torna o card completamente opaco ao passar o mouse */
-  background-color: #fafbfc79; /* Muda a cor de fundo ao passar o mouse */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-image {
   width: 100%;
-  height: 180px;
+  height: 250px;
   object-fit: cover;
-  transition: filter 0.3s ease;
-  border-bottom: 3px solid #0366d6;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.1); /* Zoom na imagem ao passar o mouse */
 }
 
 .portfolio-info {
-  padding: 1rem;
+  padding: 20px;
   text-align: center;
+  flex-grow: 1; /* Faz o conteúdo crescer para ocupar o espaço restante */
 }
 
 .portfolio-info h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #333;
-  margin-bottom: 0.6rem;
+  margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
 
 .portfolio-info p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
   margin-bottom: 0;
+}
+
+.portfolio-item-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-item-link .portfolio-item {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item-link .portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.portfolio-item-link .portfolio-item:hover .portfolio-image {
+  transform: scale(1.1); /* Zoom na imagem ao passar o mouse */
 }

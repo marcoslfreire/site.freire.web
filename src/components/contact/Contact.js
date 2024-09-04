@@ -1,38 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  // Estados para armazenar os valores do formulário e a mensagem de status
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [status, setStatus] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Função para lidar com o envio do formulário
+  // Verifica se todos os campos estão preenchidos
+  useEffect(() => {
+    if (nome && email && mensagem) {
+      setIsButtonEnabled(true);
+    } else {
+      setIsButtonEnabled(false);
+    }
+  }, [nome, email, mensagem]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitted(true);
 
-    // Envia os dados para o backend usando fetch
     try {
       const response = await fetch('http://localhost:5000/enviar-contato', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          nome,
-          email,
-          mensagem,
-        }),
+        body: JSON.stringify({ nome, email, mensagem }),
       });
 
       const result = await response.json();
       if (response.ok) {
-        setStatus('Mensagem enviada com sucesso!');
-        // Limpar os campos do formulário após o envio
         setNome('');
         setEmail('');
         setMensagem('');
+        showSuccessPopup();
       } else {
         setStatus(`Erro: ${result.error}`);
       }
@@ -40,13 +45,21 @@ const Contact = () => {
       console.error('Erro:', error);
       setStatus('Erro ao enviar a mensagem.');
     }
+    setIsSubmitted(false);
+  };
+
+  const showSuccessPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 6000); // Oculta o pop-up após 6 segundos
   };
 
   return (
     <div className="contact-container">
       <div className="contact-header">
-        <h1>Contato</h1>
-        <p>Envie suas mensagens e sugestões. Estou sempre aberto a feedbacks!</p>
+        <h1>Entre em Contato</h1>
+        <p>Envie suas dúvidas, sugestões ou feedbacks. Estou ansioso para ouvir você!</p>
       </div>
       <form className="contact-form" onSubmit={handleSubmit}>
         <input
@@ -73,23 +86,28 @@ const Contact = () => {
           onChange={(e) => setMensagem(e.target.value)}
           required
         ></textarea>
-        <button type="submit">Enviar Mensagem</button>
-        {status && <p>{status}</p>}
+        <button
+          type="submit"
+          disabled={!isButtonEnabled || isSubmitted}
+          className={isSubmitted ? 'submitted' : ''}
+        >
+          Enviar Mensagem
+        </button>
+        {status && <p className="status-message">{status}</p>}
       </form>
+      {showPopup && (
+        <div className="popup">
+          <p>{`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`}</p>
+        </div>
+      )}
       <div className="social-links">
-        <a href="mailto:meuemail@example.com" title="Email">
+        <a href={`mailto:${email}`} title="Email">
           <i className="fa-solid fa-envelope"></i>
         </a>
-        <a href="https://www.linkedin.com/in/seu-perfil/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/marcosffreire" target="_blank" rel="noopener noreferrer" title="LinkedIn">
           <i className="fa-brands fa-linkedin"></i>
         </a>
-        <a href="https://twitter.com/seu-perfil" target="_blank" rel="noopener noreferrer" title="Twitter">
-          <i className="fa-brands fa-twitter"></i>
-        </a>
-        <a href="https://www.instagram.com/seu-perfil/" target="_blank" rel="noopener noreferrer" title="Instagram">
-          <i className="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://github.com/seu-perfil" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <a href="https://github.com/marcoslfreire" target="_blank" rel="noopener noreferrer" title="GitHub">
           <i className="fa-brands fa-github"></i>
         </a>
       </div>

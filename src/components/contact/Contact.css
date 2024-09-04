@@ -1,72 +1,118 @@
 .contact-container {
-    padding: 80px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-header h1 {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box; /* Inclui padding e border no tamanho total do elemento */
-  }
-  
-  .contact-form textarea {
-    resize: vertical; /* Permite redimensionar apenas verticalmente */
-  }
-  
-  .contact-form button {
-    padding: 1rem;
-    background-color: #0366d6;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .contact-form button:hover {
-    background-color: #024b8a;
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .social-links a {
-    color: #0366d6;
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  .social-links a:hover {
-    color: #024b8a;
-  }
-  
+  padding: 60px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-header h1 {
+  font-size: 2.2rem;
+  color: #e24b4b;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 0.9rem 0; /* Remove o padding lateral */
+  border: none; /* Remove todas as bordas */
+  border-bottom: 2px solid #ddd; /* Adiciona a borda inferior */
+  font-size: 1rem;
+  outline: none; /* Remove o contorno ao focar */
+  transition: border-color 0.3s ease; /* Adiciona uma transição suave na cor da borda */
+}
+
+.contact-form input:focus {
+  border-bottom-color: #e24b4b; /* Muda a cor da borda inferior ao focar */
+}
+
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 0.9rem;
+  background-color: #e24b4b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:disabled {
+  background-color: #ccc; /* Cor do botão quando desabilitado */
+  cursor: not-allowed; /* Cursor não permitido quando o botão está desabilitado */
+}
+
+.contact-form button.submitted {
+  background-color: #00b35c; /* Cor do botão após o envio */
+}
+
+.contact-form button:hover:not(:disabled) {
+  background-color: #f80606; /* Cor do botão ao passar o mouse, se não estiver desabilitado */
+}
+
+.status-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: #e24b4b;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: #e24b4b;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #e24b4b;
+}
+
+/* Estilo para o pop-up */
+.popup {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+  font-size: 1rem;
+}
