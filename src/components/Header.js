@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import profilePic from '..//components/imagens/perfiltest.png'; // Caminho da imagem
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,7 @@ const Header = () => {
     <header className="header">
       <nav className="navbar">
         <div className="navbar-container">
+          <img src={profilePic} alt="Perfil" className="profile-pic-mobile" />
           <div className="hamburger" onClick={toggleMenu}>
             <span className="bar"></span>
             <span className="bar"></span>

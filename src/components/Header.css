@@ -27,6 +27,16 @@
   text-decoration: none;
 }
 
+/* Estilo da imagem de perfil (somente para mobile) */
+.profile-pic-mobile {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
 /* Estilos para o hambúrguer */
 .hamburger {
   cursor: pointer;
@@ -80,16 +90,16 @@
 .nav-links.open {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza os itens verticalmente */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  position: fixed; /* Faz o menu cobrir toda a tela */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
   top: 0;
   right: 0;
-  background-color: rgba(90, 86, 86, 0.8); /* Fundo cinza claro com transparência */
+  background-color: rgba(90, 86, 86, 0.8);
   width: 100vw;
-  height: 100vh; /* Ocupa toda a altura da tela */
+  height: 100vh;
   padding: 1rem;
-  z-index: 999; /* Garante que o menu esteja acima de outros elementos */
+  z-index: 999;
 }
 
 /* Estilo para itens do menu quando aberto */
@@ -111,5 +121,9 @@
 
   .nav-links.open {
     display: flex; /* Exibe o menu quando aberto */
+  }
+
+  .profile-pic-mobile {
+    display: inline-block; /* Exibe a imagem no mobile */
   }
 }
