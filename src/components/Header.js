@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -12,21 +12,6 @@ const Header = () => {
   const closeMenu = () => {
     setIsOpen(false);
   };
-
-  // Fechar o menu quando clicar fora
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (isOpen && !event.target.closest('.navbar')) {
-        closeMenu();
-      }
-    };
-
-    document.addEventListener('click', handleOutsideClick);
-
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, [isOpen]);
 
   return (
     <header className="header">

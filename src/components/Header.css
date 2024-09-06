@@ -85,7 +85,7 @@
   position: fixed; /* Faz o menu cobrir toda a tela */
   top: 0;
   right: 0;
-  background-color: rgba(112, 108, 108, 0.8); /* Fundo cinza claro com transparência */
+  background-color: rgba(90, 86, 86, 0.8); /* Fundo cinza claro com transparência */
   width: 100vw;
   height: 100vh; /* Ocupa toda a altura da tela */
   padding: 1rem;
