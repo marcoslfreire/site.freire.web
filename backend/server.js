@@ -10,13 +10,21 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors()); // Adicionar o middleware CORS
 
-// Configuração do banco de dados usando variáveis de ambiente
+// Configuração do banco de dados local 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,     // Usando variável de ambiente para o host
-  user: process.env.DB_USER,     // Usando variável de ambiente para o usuário
-  password: process.env.DB_PASSWORD, // Usando variável de ambiente para a senha
-  database: process.env.DB_NAME, // Usando variável de ambiente para o nome do banco de dados
+  host: '127.0.0.1',
+  user: 'root',
+  password: '123456', // Insira sua senha do MySQL aqui
+  database: 'sys', // Nome do seu banco de dados
 });
+
+// Configuração do banco de dados usando variáveis de ambiente deploy
+// const db = mysql.createConnection({
+  // host: process.env.DB_HOST,     // Usando variável de ambiente para o host
+ //  user: process.env.DB_USER,     // Usando variável de ambiente para o usuário
+ //  password: process.env.DB_PASSWORD, // Usando variável de ambiente para a senha
+ //  database: process.env.DB_NAME, // Usando variável de ambiente para o nome do banco de dados
+// });
 
 // Conectar ao banco de dados
 db.connect(err => {
