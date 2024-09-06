@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import profilePic from '../imagens/perfil.jpg'; // Caminho relativo para a imagem
+import profilePic from '../imagens/WhatsApp Image 2024-09-05 at 21.58.08.jpeg'; // Caminho relativo para a imagem
 
 
 const Home = () => {
