@@ -1,3 +1,4 @@
+/* Estilos do Header */
 .header {
   background-color: #24292e;
   color: #ffffff;
@@ -26,6 +27,30 @@
   text-decoration: none;
 }
 
+/* Estilos para o hambúrguer */
+.hamburger {
+  cursor: pointer;
+  display: none; /* Será mostrado apenas em telas menores */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  margin-right: 1rem;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover .bar {
+  background-color: #fa6686;
+}
+
+/* Estilos do menu quando aberto */
 .nav-links {
   list-style: none;
   display: flex;
@@ -40,13 +65,51 @@
   color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Transição suave para cor e movimento */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
 
 .nav-links a:hover {
-  color: #586069; /* Muda a cor ao passar o mouse */
-  transform: translateY(-3px); /* Efeito de "subida" */
-  background-color: transparent; /* Remove qualquer fundo de sobreposição */
+  color: #586069;
+  transform: translateY(-3px);
+  background-color: transparent;
+}
+
+/* Quando o menu estiver aberto */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza os itens verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  position: fixed; /* Faz o menu cobrir toda a tela */
+  top: 0;
+  right: 0;
+  background-color: rgba(112, 108, 108, 0.8); /* Fundo cinza claro com transparência */
+  width: 100vw;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  padding: 1rem;
+  z-index: 999; /* Garante que o menu esteja acima de outros elementos */
+}
+
+/* Estilo para itens do menu quando aberto */
+.nav-links.open li {
+  margin: 1rem 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links.open {
+    display: flex; /* Exibe o menu quando aberto */
+  }
 }

@@ -109,4 +109,30 @@
     transform: scaleX(1);
   }
   
+
+  /* Responsividade para dispositivos móveis (max-width 480px) */
+@media (max-width: 480px) {
+  .about-container {
+    flex-direction: column; /* Coloca tudo em uma coluna */
+    padding: 0; /* Remove o padding externo */
+  }
+
+  .sidebar {
+    display: none; /* Esconde a sidebar no mobile */
+  }
+
+  .main-content {
+    width: 100%; /* Faz o conteúdo ocupar toda a tela */
+    padding: 1rem; /* Mantém o padding interno */
+  }
+
+  .profile-pic {
+    display: none; /* Esconde a imagem de perfil no mobile */
+  }
+
+  .main-content p {
+    font-size: 1rem; /* Ajusta o tamanho do texto no mobile */
+  }
+}
+
   
