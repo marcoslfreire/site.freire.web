@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Importar o pacote cors
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,12 +10,12 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors()); // Adicionar o middleware CORS
 
-// Configuração do banco de dados
+// Configuração do banco de dados usando variáveis de ambiente
 const db = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: '123456', // Insira sua senha do MySQL aqui
-  database: 'sys', // Nome do seu banco de dados
+  host: process.env.DB_HOST,     // Usando variável de ambiente para o host
+  user: process.env.DB_USER,     // Usando variável de ambiente para o usuário
+  password: process.env.DB_PASSWORD, // Usando variável de ambiente para a senha
+  database: process.env.DB_NAME, // Usando variável de ambiente para o nome do banco de dados
 });
 
 // Conectar ao banco de dados
